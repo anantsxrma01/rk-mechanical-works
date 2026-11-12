@@ -1,0 +1,20 @@
+{
+  "name": "rk-mechanical-works",
+  "version": "1.0.0",
+  "description": "Corporate website for RK Mechanical Works Private Limited",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "serve": "node server.js"
+  },
+  "keywords": [
+    "heavy-engineering",
+    "boilers",
+    "pressure-vessels",
+    "epc",
+    "mechanical-works"
+  ],
+  "author": "RK Mechanical Works Private Limited",
+  "license": "ISC"
+}
