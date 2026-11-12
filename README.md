@@ -2,6 +2,18 @@
 
 A premier, multi-page corporate demo website engineered for **RK Mechanical Works Private Limited**, taking design cues, structural hierarchy, and technical rigor from leading heavy engineering conglomerates **Thermax Global** and **ISGEC Heavy Engineering**.
 
+- 🌐 **Live Demo (GitHub Pages)**: [https://anantsxrma01.github.io/rk-mechanical-works/](https://anantsxrma01.github.io/rk-mechanical-works/)
+- 💻 **GitHub Repository**: [https://github.com/anantsxrma01/rk-mechanical-works](https://github.com/anantsxrma01/rk-mechanical-works)
+
+---
+
+## 🌓 Light / Dark Mode & Theme System
+
+The website features a dynamic theme switch located in the navbar:
+- **Light Mode**: Crisp, high-contrast industrial white and clean slate backgrounds with emerald green accents.
+- **Dark Mode**: Rich obsidian emerald (`#06140c`) with brushed gold borders and luminous typography.
+- **Auto-Detection & Persistence**: Reads OS color scheme (`prefers-color-scheme`) and persists user preference across pages via `localStorage`.
+
 ---
 
 ## 🏛️ Brand Palette & Visual Identity
