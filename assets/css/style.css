@@ -200,38 +200,58 @@ button, input, select, textarea {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
   line-height: 1;
 }
 
 .brand-main-title {
   display: flex;
   align-items: center;
-  gap: 0.38rem;
   font-size: 1.05rem;
-  font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--text-primary);
-  line-height: 1.2;
+  line-height: 1.15;
 }
 
 .brand-main-title .brand-rk {
-  font-weight: 900;
+  font-weight: 800;
   letter-spacing: -0.02em;
+  display: inline-block;
+  line-height: 1;
 }
 
 .brand-main-title .brand-dot {
-  color: var(--accent-cyan);
-  font-size: 0.85rem;
-  font-weight: 900;
   display: inline-block;
-  line-height: 1;
-  text-shadow: 0 0 8px rgba(0, 192, 240, 0.6);
+  width: 5.5px;
+  height: 5.5px;
+  border-radius: 50%;
+  background-color: var(--accent-cyan);
+  margin: 0 0.44rem;
+  flex-shrink: 0;
+  font-size: 0;
+  line-height: 0;
+  vertical-align: middle;
+  /* Soft vibrant blur shadow all 360 degrees around dot */
+  box-shadow: 0 0 6px var(--accent-cyan), 0 0 14px rgba(0, 192, 240, 0.85), 0 0 22px rgba(53, 232, 255, 0.6);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
+[data-theme="light"] .brand-main-title .brand-dot {
+  background-color: #0098cc;
+  box-shadow: 0 0 6px rgba(0, 152, 204, 0.85), 0 0 14px rgba(0, 192, 240, 0.65), 0 0 20px rgba(53, 232, 255, 0.45);
+}
+
+.nav-brand-group:hover .brand-main-title .brand-dot {
+  box-shadow: 0 0 8px var(--accent-cyan-bright), 0 0 18px rgba(53, 232, 255, 0.95), 0 0 26px rgba(53, 232, 255, 0.7);
+}
+
+/* Reduced boldness of MECHANICAL for elegant Apple/ISGEC typographic contrast */
 .brand-main-title .brand-mech {
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-weight: 400;
+  letter-spacing: 0.05em;
   color: var(--text-primary);
+  display: inline-block;
+  line-height: 1;
 }
 
 .brand-sub-title {
@@ -240,9 +260,9 @@ button, input, select, textarea {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent-cyan);
-  margin-top: 3px;
+  margin-top: 3.5px;
   line-height: 1;
-  opacity: 0.92;
+  opacity: 0.95;
   transition: color 0.3s ease;
 }
 

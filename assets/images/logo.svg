@@ -1,43 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 50" fill="none">
   <defs>
-    <linearGradient id="logoBadgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#021B36"/>
-      <stop offset="100%" stop-color="#000C19"/>
-    </linearGradient>
-    <linearGradient id="logoCyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#35E8FF"/>
-      <stop offset="50%" stop-color="#00C0F0"/>
-      <stop offset="100%" stop-color="#0077A8"/>
-    </linearGradient>
-    <filter id="logoGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00C0F0" flood-opacity="0.35"/>
+    <filter id="dotGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#00C0F0" flood-opacity="0.9"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#35E8FF" flood-opacity="0.6"/>
     </filter>
   </defs>
 
-  <!-- Precision Badge Icon -->
-  <g transform="translate(4, 10)" filter="url(#logoGlow)">
-    <rect width="40" height="40" rx="10" fill="url(#logoBadgeGrad)" stroke="#35E8FF" stroke-width="1.2" stroke-opacity="0.6"/>
-    <!-- R structure -->
-    <path d="M12 11 H20 C23.5 11 25.5 13 25.5 16 C25.5 19 23.5 21 20 21 H15.5 V29 H12 V11 Z" fill="url(#logoCyanGrad)"/>
-    <path d="M15.5 14.5 H19.5 C21 14.5 22 15.2 22 16 C22 16.8 21 17.5 19.5 17.5 H15.5 V14.5 Z" fill="#000C19"/>
-    <!-- K strut -->
-    <path d="M21 20.5 L27.5 11 H31.5 L24 21.5 L32 29 H27.5 L21.5 22.5" fill="#35E8FF"/>
-    <circle cx="27.5" cy="11" r="1.5" fill="#35E8FF"/>
-  </g>
-
-  <!-- Typographic Stack: RK • MECHANICAL on top, WORKS PRIVATE LIMITED underneath -->
-  <g transform="translate(56, 12)">
+  <!-- Pure Typographic Brand Stack -->
+  <g transform="translate(0, 8)">
     <!-- Top Line: RK • MECHANICAL -->
-    <text x="0" y="22" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="800" letter-spacing="-0.02em" fill="#FFFFFF">
+    <!-- RK in heavy bold -->
+    <text x="0" y="20" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="800" letter-spacing="-0.02em" fill="#FFFFFF">
       RK
     </text>
-    <circle cx="36" cy="16" r="2.5" fill="#00C0F0"/>
-    <text x="45" y="22" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="600" letter-spacing="0.04em" fill="#FFFFFF">
+    
+    <!-- Glowing Cyan Dot with blur shadow -->
+    <circle cx="39" cy="14" r="3" fill="#00C0F0" filter="url(#dotGlow)"/>
+
+    <!-- MECHANICAL with reduced boldness (font-weight: 400) -->
+    <text x="49" y="20" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="400" letter-spacing="0.05em" fill="#FFFFFF">
       MECHANICAL
     </text>
 
-    <!-- Bottom Line: WORKS PRIVATE LIMITED in small font -->
-    <text x="1" y="35" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="600" letter-spacing="0.18em" fill="#00A3E0">
+    <!-- Bottom Line: WORKS PRIVATE LIMITED in tracked small font -->
+    <text x="0.5" y="34" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="9.5" font-weight="600" letter-spacing="0.18em" fill="#00A3E0">
       WORKS PRIVATE LIMITED
     </text>
   </g>
