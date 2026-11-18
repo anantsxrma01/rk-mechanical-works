@@ -1,223 +1,193 @@
 /**
  * RK MECHANICAL WORKS PRIVATE LIMITED
- * Interactive JavaScript Engine
+ * Apple-Inspired Corporate Interactive Engine
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 0. Light / Dark Theme Management
+  // 1. Theme Management (Apple Pro Dark by default, with smooth light mode switch)
   const themeToggle = document.getElementById('themeToggle');
 
-  const getPreferredTheme = () => {
-    const saved = localStorage.getItem('rk_theme');
+  const getSavedTheme = () => {
+    const saved = localStorage.getItem('rk_apple_theme');
     if (saved) return saved;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    // Default to dark (Apple Keynote Pro dark aesthetic)
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
   };
 
-  const applyTheme = (theme) => {
+  const setAppleTheme = (theme) => {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('rk_theme', theme);
+    localStorage.setItem('rk_apple_theme', theme);
     if (themeToggle) {
-      const nextLabel = theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
-      themeToggle.setAttribute('aria-label', nextLabel);
-      themeToggle.setAttribute('title', nextLabel);
+      const nextMode = theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+      themeToggle.setAttribute('aria-label', nextMode);
+      themeToggle.setAttribute('title', nextMode);
     }
   };
 
-  // Set initial state
-  const currentTheme = getPreferredTheme();
-  applyTheme(currentTheme);
+  // Initialize
+  setAppleTheme(getSavedTheme());
 
   if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const active = document.documentElement.getAttribute('data-theme') || 'light';
-      const nextTheme = active === 'dark' ? 'light' : 'dark';
-      applyTheme(nextTheme);
+    themeToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const target = current === 'dark' ? 'light' : 'dark';
+      setAppleTheme(target);
     });
   }
 
-  // Listen for OS scheme change if user hasn't manually selected
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    if (!localStorage.getItem('rk_theme')) {
-      applyTheme(e.matches ? 'dark' : 'light');
-    }
-  });
+  // 2. Mobile Global Navigation Toggle
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const appleNavLinks = document.getElementById('appleNavLinks');
 
-  // 1. Mobile Menu Toggle
-  const mobileToggle = document.getElementById('mobileToggle');
-  const navMenu = document.getElementById('navMenu');
-
-  if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
-      const isExpanded = navMenu.classList.contains('open');
-      mobileToggle.setAttribute('aria-expanded', isExpanded);
+  if (mobileMenuBtn && appleNavLinks) {
+    mobileMenuBtn.addEventListener('click', () => {
+      appleNavLinks.classList.toggle('open');
+      const isOpen = appleNavLinks.classList.contains('open');
+      mobileMenuBtn.setAttribute('aria-expanded', isOpen);
     });
 
-    // Close mobile menu on link click
-    navMenu.querySelectorAll('.nav-link').forEach(link => {
+    appleNavLinks.querySelectorAll('.apple-nav-link').forEach(link => {
       link.addEventListener('click', () => {
-        navMenu.classList.remove('open');
+        appleNavLinks.classList.remove('open');
       });
     });
   }
 
-  // 2. Sticky Header elevation on scroll
-  const header = document.querySelector('.site-header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      header?.classList.add('scrolled');
-    } else {
-      header?.classList.remove('scrolled');
-    }
-  });
-
-  // 3. Tab Switching for Investors / Governance Page
-  const tabPills = document.querySelectorAll('.inv-pill');
-  const tabPanes = document.querySelectorAll('.inv-tab-pane');
-
-  if (tabPills.length > 0) {
-    tabPills.forEach(pill => {
-      pill.addEventListener('click', () => {
-        const targetId = pill.getAttribute('data-target');
-
-        tabPills.forEach(p => p.classList.remove('active'));
-        tabPanes.forEach(pane => pane.classList.remove('active'));
-
-        pill.classList.add('active');
-        const targetPane = document.getElementById(targetId);
-        if (targetPane) {
-          targetPane.classList.add('active');
-        }
-      });
-    });
-  }
-
-  // 4. Project / Solution Category Filter
-  const filterBtns = document.querySelectorAll('.project-tab-btn');
-  const projectItems = document.querySelectorAll('.project-item');
-
-  if (filterBtns.length > 0) {
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const filterValue = btn.getAttribute('data-filter');
-
-        projectItems.forEach(item => {
-          if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-            item.style.display = 'block';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-      });
-    });
-  }
-
-  // 5. RFQ Modal Open & Close
-  const modalTriggers = document.querySelectorAll('[data-open-modal="rfqModal"]');
+  // 3. Apple Modal / Sheet (Request Technical RFQ)
   const rfqModal = document.getElementById('rfqModal');
-  const modalCloseBtns = document.querySelectorAll('.modal-close-btn, .modal-overlay');
+  const openModalBtns = document.querySelectorAll('[data-open-modal="rfqModal"]');
+  const closeModalBtns = document.querySelectorAll('.apple-modal-close, .apple-modal-overlay');
 
   if (rfqModal) {
-    modalTriggers.forEach(trigger => {
-      trigger.addEventListener('click', (e) => {
-        e.preventDefault();
-        rfqModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      });
-    });
+    const showModal = () => {
+      rfqModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    };
 
-    const closeTargetModal = () => {
+    const hideModal = () => {
       rfqModal.classList.remove('active');
       document.body.style.overflow = '';
     };
 
-    document.querySelectorAll('.modal-close-btn').forEach(btn => {
-      btn.addEventListener('click', closeTargetModal);
+    openModalBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        showModal();
+      });
+    });
+
+    document.querySelectorAll('.apple-modal-close').forEach(btn => {
+      btn.addEventListener('click', hideModal);
     });
 
     rfqModal.addEventListener('click', (e) => {
       if (e.target === rfqModal) {
-        closeTargetModal();
+        hideModal();
       }
     });
 
-    // Close on Escape key
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && rfqModal.classList.contains('active')) {
-        closeTargetModal();
+        hideModal();
       }
     });
   }
 
-  // 6. Interactive Form Submissions (Demo Handler with real confirmation)
-  const contactForms = document.querySelectorAll('.contact-form, #modalRfqForm');
-  contactForms.forEach(form => {
+  // 4. Interactive Tabs (Investors & Corporate Governance)
+  const tabBtns = document.querySelectorAll('.apple-tab-btn');
+  const tabPanes = document.querySelectorAll('.apple-tab-pane');
+
+  if (tabBtns.length > 0) {
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-target');
+
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabPanes.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.classList.add('active');
+        }
+      });
+    });
+  }
+
+  // 5. Interactive RFQ Form Submission
+  const rfqForms = document.querySelectorAll('.apple-interactive-form, #modalRfqForm');
+  rfqForms.forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const feedback = form.querySelector('.form-feedback');
       const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn ? submitBtn.innerHTML : 'Submit';
 
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span>Transmitting Specification...</span>';
+        submitBtn.innerHTML = '<span>Verifying & Encrypting...</span>';
       }
 
       setTimeout(() => {
-        if (feedback) {
-          feedback.classList.add('success');
-          feedback.innerHTML = `
-            <strong>Inquiry Received Successfully!</strong><br>
-            Thank you for reaching out to RK Mechanical Works Private Limited. Our senior technical estimation desk has received your request and will contact you at your provided coordinates within 4 business hours.
-          `;
-          feedback.style.display = 'block';
+        const feedback = form.querySelector('.form-feedback') || document.createElement('div');
+        feedback.className = 'form-feedback success';
+        feedback.style.marginTop = '1rem';
+        feedback.style.padding = '1rem';
+        feedback.style.borderRadius = '12px';
+        feedback.style.backgroundColor = 'rgba(0, 192, 240, 0.12)';
+        feedback.style.border = '1px solid rgba(0, 192, 240, 0.4)';
+        feedback.style.color = 'var(--text-primary)';
+        feedback.style.fontSize = '0.9rem';
+        feedback.style.lineHeight = '1.5';
+        feedback.innerHTML = `
+          <strong style="color: var(--accent-cyan); font-size: 1rem;">Specification Received</strong><br>
+          Your technical data sheet has been dispatched to the Chief Engineering Desk at RK Mechanical Works Private Limited. An estimation engineer will contact your office within 4 business hours.
+        `;
+        if (!form.querySelector('.form-feedback')) {
+          form.appendChild(feedback);
         }
         form.reset();
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.innerHTML = '<span>Submit Technical Inquiry</span>';
+          submitBtn.innerHTML = originalText;
         }
-      }, 900);
+      }, 800);
     });
   });
 
-  // 7. Animated Numbers on Scroll (Stats Counter)
-  const statsCounters = document.querySelectorAll('.stat-count');
-  let animated = false;
+  // 6. Big Counter Animation
+  const counterElements = document.querySelectorAll('.counter-val');
+  let hasAnimated = false;
 
-  const animateCounters = () => {
-    statsCounters.forEach(counter => {
-      const target = +counter.getAttribute('data-target');
-      const duration = 1600; // ms
-      const stepTime = 20;
-      const totalSteps = duration / stepTime;
-      const stepVal = target / totalSteps;
-      let current = 0;
+  const runCounters = () => {
+    counterElements.forEach(el => {
+      const target = +el.getAttribute('data-target');
+      const duration = 1800;
+      const stepInterval = 20;
+      const totalSteps = duration / stepInterval;
+      const increment = target / totalSteps;
+      let currentVal = 0;
 
       const timer = setInterval(() => {
-        current += stepVal;
-        if (current >= target) {
-          counter.textContent = target.toLocaleString();
+        currentVal += increment;
+        if (currentVal >= target) {
+          el.textContent = target.toLocaleString();
           clearInterval(timer);
         } else {
-          counter.textContent = Math.floor(current).toLocaleString();
+          el.textContent = Math.floor(currentVal).toLocaleString();
         }
-      }, stepTime);
+      }, stepInterval);
     });
   };
 
-  // Check if stats are in view
-  const statsSection = document.querySelector('.stats-strip');
-  if (statsSection) {
+  const metricsSection = document.querySelector('.apple-metrics-grid');
+  if (metricsSection && 'IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting && !animated) {
-        animateCounters();
-        animated = true;
+      if (entries[0].isIntersecting && !hasAnimated) {
+        runCounters();
+        hasAnimated = true;
       }
-    }, { threshold: 0.3 });
-
-    observer.observe(statsSection);
+    }, { threshold: 0.25 });
+    observer.observe(metricsSection);
   }
 });

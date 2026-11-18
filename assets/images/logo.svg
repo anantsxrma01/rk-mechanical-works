@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 90" fill="none">
+  <defs>
+    <!-- ISGEC-inspired vibrant cyan to ocean blue gradient -->
+    <linearGradient id="rkCyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E5FF"/>
+      <stop offset="50%" stop-color="#00A3E0"/>
+      <stop offset="100%" stop-color="#0066B2"/>
+    </linearGradient>
+    <linearGradient id="rkDeepNavy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#003B70"/>
+      <stop offset="100%" stop-color="#001F3F"/>
+    </linearGradient>
+    <linearGradient id="rkSilverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#A1A1A6"/>
+    </linearGradient>
+    <filter id="subtleGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00A3E0" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- GEOMETRIC EMBLEM (ISGEC Inspiration: Heavy mechanical facets, interlocking dynamic energy) -->
+  <g transform="translate(8, 10)" filter="url(#subtleGlow)">
+    <!-- Outer industrial hex-shield contour -->
+    <path d="M35 0 L66 18 L66 52 L35 70 L4 52 L4 18 Z" fill="url(#rkDeepNavy)" stroke="url(#rkCyanGrad)" stroke-width="2.5" stroke-linejoin="round"/>
+    
+    <!-- Precision Chevron 'R' facet -->
+    <path d="M16 20 L28 20 C34 20 38 23 38 28 C38 33 34 36 28 36 L22 36 L22 50 L16 50 Z" fill="url(#rkCyanGrad)"/>
+    <path d="M22 25 L27 25 C29.5 25 31.5 26.2 31.5 28 C31.5 29.8 29.5 31 27 31 L22 31 Z" fill="#001F3F"/>
+    
+    <!-- Dynamic 'K' diagonal struts forming industrial interlocking node -->
+    <path d="M30 35 L44 19 L52 19 L37 36 L54 51 L45 51 L31 38 Z" fill="#00E5FF"/>
+    
+    <!-- Micro technical accent dot -->
+    <polygon points="35,3 38,8 32,8" fill="#00E5FF"/>
+    <polygon points="35,67 38,62 32,62" fill="#00E5FF"/>
+  </g>
+
+  <!-- LOGOTYPE (Bold, heavy, modern industrial typography with Apple-level precision) -->
+  <g transform="translate(92, 0)">
+    <!-- Primary Bold Monogram -->
+    <text x="0" y="44" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif" font-weight="900" font-size="34" letter-spacing="-0.03em" fill="currentColor">
+      RK
+    </text>
+
+    <!-- Subtle vertical engineering separator -->
+    <line x1="58" y1="18" x2="58" y2="70" stroke="#00A3E0" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Corporate Designation (Bold heavy caps like ISGEC) -->
+    <text x="70" y="34" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif" font-weight="800" font-size="16.5" letter-spacing="0.08em" fill="currentColor">
+      MECHANICAL WORKS
+    </text>
+    <text x="70" y="52" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif" font-weight="600" font-size="11" letter-spacing="0.22em" fill="#00A3E0">
+      PRIVATE LIMITED
+    </text>
+
+    <!-- ISGEC-inspired Tagline -->
+    <text x="70" y="68" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif" font-weight="500" font-size="9" letter-spacing="0.28em" fill="#86868B">
+      ENGINEERING FOR EXCELLENCE
+    </text>
+  </g>
+</svg>
