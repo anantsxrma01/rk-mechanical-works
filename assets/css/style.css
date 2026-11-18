@@ -197,10 +197,11 @@ button, input, select, textarea {
 
 /* Pure Typographic Brand Identity: RK • MECHANICAL on top, WORKS PRIVATE LIMITED underneath */
 .brand-text-block {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: stretch;
+  width: max-content;
   line-height: 1;
 }
 
@@ -210,7 +211,8 @@ button, input, select, textarea {
   font-size: 1.05rem;
   letter-spacing: -0.01em;
   color: var(--text-primary);
-  line-height: 1.15;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .brand-main-title .brand-rk {
@@ -254,16 +256,31 @@ button, input, select, textarea {
   line-height: 1;
 }
 
+/* Equal length & close proximity: exactly matches width of RK • MECHANICAL */
 .brand-sub-title {
-  font-size: 0.54rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 0.52rem;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent-cyan);
-  margin-top: 3.5px;
+  margin-top: 1.5px; /* Brought right next to RK • MECHANICAL */
   line-height: 1;
   opacity: 0.95;
+  white-space: nowrap;
   transition: color 0.3s ease;
+}
+
+.brand-sub-title span {
+  display: inline-block;
+  line-height: 1;
+}
+
+.brand-sub-title span:last-child {
+  margin-right: -0.18em; /* perfectly flushes LIMITED with right edge of MECHANICAL */
 }
 
 [data-theme="light"] .brand-sub-title {

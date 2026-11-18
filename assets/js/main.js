@@ -190,4 +190,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.25 });
     observer.observe(metricsSection);
   }
+
+  // 7. Equalize Brand Subtitle Width to Exactly Match Main Title Length
+  const syncBrandLength = () => {
+    document.querySelectorAll('.brand-text-block').forEach(block => {
+      const title = block.querySelector('.brand-main-title');
+      const sub = block.querySelector('.brand-sub-title');
+      if (title && sub) {
+        const w = title.getBoundingClientRect().width;
+        if (w > 0) {
+          sub.style.width = w + 'px';
+        }
+      }
+    });
+  };
+
+  syncBrandLength();
+  window.addEventListener('resize', syncBrandLength);
+  if (document.fonts) {
+    document.fonts.ready.then(syncBrandLength);
+  }
 });
