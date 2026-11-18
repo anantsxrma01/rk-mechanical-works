@@ -179,26 +179,23 @@ button, input, select, textarea {
 .nav-brand-group {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
   text-decoration: none;
   flex-shrink: 0;
   white-space: nowrap;
   user-select: none;
+  padding: 0.2rem 0;
+  transition: opacity 0.25s ease;
+}
+
+.nav-brand-group:hover {
+  opacity: 0.92;
 }
 
 .nav-logo-mark {
-  height: 30px;
-  width: 30px;
-  border-radius: 8px;
-  flex-shrink: 0;
-  transition: transform 0.25s ease;
+  display: none !important;
 }
 
-.nav-brand-group:hover .nav-logo-mark {
-  transform: scale(1.05);
-}
-
-/* Redesigned Brand Typographic Hierarchy: RK • MECHANICAL on top, WORKS PRIVATE LIMITED underneath */
+/* Pure Typographic Brand Identity: RK • MECHANICAL on top, WORKS PRIVATE LIMITED underneath */
 .brand-text-block {
   display: flex;
   flex-direction: column;
@@ -209,43 +206,43 @@ button, input, select, textarea {
 .brand-main-title {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
-  font-size: 0.95rem;
+  gap: 0.38rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.01em;
   color: var(--text-primary);
-  line-height: 1.15;
+  line-height: 1.2;
 }
 
 .brand-main-title .brand-rk {
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: -0.02em;
 }
 
 .brand-main-title .brand-dot {
   color: var(--accent-cyan);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 900;
   display: inline-block;
   line-height: 1;
-  text-shadow: 0 0 6px rgba(0, 192, 240, 0.5);
+  text-shadow: 0 0 8px rgba(0, 192, 240, 0.6);
 }
 
 .brand-main-title .brand-mech {
   font-weight: 600;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
   color: var(--text-primary);
 }
 
 .brand-sub-title {
-  font-size: 0.52rem;
+  font-size: 0.54rem;
   font-weight: 600;
-  letter-spacing: 0.17em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent-cyan);
-  margin-top: 2px;
+  margin-top: 3px;
   line-height: 1;
-  opacity: 0.9;
+  opacity: 0.92;
   transition: color 0.3s ease;
 }
 
