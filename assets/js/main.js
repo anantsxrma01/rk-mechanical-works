@@ -39,18 +39,51 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. Mobile Global Navigation Toggle
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const appleNavLinks = document.getElementById('appleNavLinks');
+  const globalNav = document.querySelector('.apple-global-nav');
 
   if (mobileMenuBtn && appleNavLinks) {
-    mobileMenuBtn.addEventListener('click', () => {
-      appleNavLinks.classList.toggle('open');
-      const isOpen = appleNavLinks.classList.contains('open');
-      mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+    const toggleMenu = (forceState) => {
+      const isCurrentlyOpen = appleNavLinks.classList.contains('open');
+      const nextState = typeof forceState === 'boolean' ? forceState : !isCurrentlyOpen;
+
+      if (nextState) {
+        appleNavLinks.classList.add('open');
+        if (globalNav) globalNav.classList.add('menu-open');
+        document.body.classList.add('nav-open');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+      } else {
+        appleNavLinks.classList.remove('open');
+        if (globalNav) globalNav.classList.remove('menu-open');
+        document.body.classList.remove('nav-open');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      }
+    };
+
+    mobileMenuBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMenu();
     });
 
-    appleNavLinks.querySelectorAll('.apple-nav-link').forEach(link => {
+    // Close menu when clicking any link inside the navigation drawer
+    appleNavLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        appleNavLinks.classList.remove('open');
+        toggleMenu(false);
       });
+    });
+
+    // Close menu on ESC key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && appleNavLinks.classList.contains('open')) {
+        toggleMenu(false);
+      }
+    });
+
+    // Close menu on window resize to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1080 && appleNavLinks.classList.contains('open')) {
+        toggleMenu(false);
+      }
     });
   }
 
