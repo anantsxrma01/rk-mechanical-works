@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://anantsxrma01.github.io/rk-mechanical-works/sitemap.xml

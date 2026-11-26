@@ -1237,3 +1237,405 @@ textarea.apple-input {
     width: 26px;
   }
 }
+
+/* ==========================================================================
+   SERVICE CARDS GRID (Homepage & Hub)
+   ========================================================================== */
+.service-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+}
+
+.service-card {
+  position: relative;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-hairline);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--spring-transition);
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 192, 240, 0.35);
+  box-shadow: var(--shadow-md), 0 0 25px rgba(0, 192, 240, 0.1);
+}
+
+.service-card-img {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.service-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.service-card:hover .service-card-img img {
+  transform: scale(1.08);
+}
+
+.service-card-body {
+  padding: 2rem 1.75rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card-body .eyebrow {
+  margin-bottom: 0.5rem;
+}
+
+.service-card-body h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.service-card-body p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.service-card-body .btn-apple-link {
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   PROCESS FLOW (Numbered Steps)
+   ========================================================================== */
+.process-flow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+  counter-reset: process-step;
+}
+
+.process-step {
+  position: relative;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-hairline);
+  padding: 2rem 1.75rem;
+  counter-increment: process-step;
+  transition: var(--spring-transition);
+}
+
+.process-step:hover {
+  border-color: rgba(0, 192, 240, 0.3);
+  transform: translateY(-3px);
+}
+
+.process-step::before {
+  content: counter(process-step, decimal-leading-zero);
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  background: var(--cyan-text-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.process-step h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.process-step p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   VALUE CARDS (About page, Why Choose Us)
+   ========================================================================== */
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.value-card {
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-hairline);
+  padding: 2.25rem 1.75rem;
+  text-align: center;
+  transition: var(--spring-transition);
+}
+
+.value-card:hover {
+  border-color: rgba(0, 192, 240, 0.3);
+  transform: translateY(-3px);
+}
+
+.value-card-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 1.25rem;
+  border-radius: 50%;
+  background: rgba(0, 192, 240, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-cyan);
+}
+
+.value-card h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.value-card p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   FOUNDER CARDS
+   ========================================================================== */
+.founder-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.founder-card {
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-hairline);
+  padding: 2.5rem;
+  transition: var(--spring-transition);
+}
+
+.founder-card:hover {
+  border-color: rgba(0, 192, 240, 0.3);
+  transform: translateY(-3px);
+}
+
+.founder-card h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.founder-card .founder-role {
+  font-size: 0.8rem;
+  color: var(--accent-cyan);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+.founder-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.founder-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.founder-contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: var(--accent-blue);
+  font-weight: 500;
+}
+
+.founder-contact a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   SCOPE LIST (Service page detailed bullet lists)
+   ========================================================================== */
+.scope-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.scope-block {
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-hairline);
+  padding: 2rem;
+}
+
+.scope-block h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.scope-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.scope-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.scope-list li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent-cyan);
+  flex-shrink: 0;
+  margin-top: 0.45rem;
+}
+
+/* ==========================================================================
+   INDUSTRY CARDS
+   ========================================================================== */
+.industry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.industry-card {
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-hairline);
+  padding: 2.25rem 2rem;
+  transition: var(--spring-transition);
+}
+
+.industry-card:hover {
+  border-color: rgba(0, 192, 240, 0.3);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.industry-card h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+.industry-card p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   SERVICE DETAIL HERO (with breadcrumb)
+   ========================================================================== */
+.service-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+}
+
+.service-breadcrumb a {
+  color: var(--accent-blue);
+}
+
+.service-breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.service-breadcrumb .sep {
+  color: var(--text-tertiary);
+}
+
+/* CTA inline band */
+.cta-inline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+}
+
+/* ==========================================================================
+   ADDITIONAL RESPONSIVE RULES
+   ========================================================================== */
+@media (max-width: 1080px) {
+  .service-cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .value-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-flow { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .service-cards-grid { grid-template-columns: 1fr; }
+  .value-grid { grid-template-columns: 1fr; }
+  .process-flow { grid-template-columns: 1fr; }
+  .founder-grid { grid-template-columns: 1fr; }
+  .scope-grid { grid-template-columns: 1fr; }
+
+  /* Contact grid stacking */
+  .contact-layout {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* RK Mechanical Works content layout additions */
+.apple-hero-layout { display: grid; grid-template-columns: 1.08fr 0.92fr; align-items: center; gap: 4rem; min-height: 520px; }
+.technical-mark { min-height: 360px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.25rem; border: 1px solid var(--border-hairline); border-radius: var(--radius-xl); background: radial-gradient(circle at 50% 20%, rgba(0,192,240,.16), transparent 55%), var(--bg-card); box-shadow: var(--shadow-lg); }
+.technical-mark img { width: min(82%, 380px); max-height: 220px; object-fit: contain; }
+.technical-caption { color: var(--text-secondary); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; text-align: center; }
+.apple-section-heading { max-width: 760px; }
+.apple-section-title { font-size: clamp(2.2rem, 4.5vw, 4.2rem); line-height: 1.05; letter-spacing: -.045em; margin: .5rem 0 1rem; }
+.apple-section-subtitle { max-width: 720px; color: var(--text-secondary); font-size: 1.12rem; line-height: 1.65; }
+.service-overview { max-width: 900px; color: var(--text-secondary); font-size: 1.08rem; line-height: 1.75; margin: 1.25rem 0 0; }
+.detail-list { margin: 0; padding-left: 1.15rem; color: var(--text-secondary); line-height: 1.75; }
+.detail-list li + li { margin-top: .55rem; }
+.detail-list li::marker { color: var(--accent-cyan); }
+.process-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-top: 3rem; }
+.process-card { min-height: 210px; padding: 1.5rem; border: 1px solid var(--border-hairline); border-radius: var(--radius-lg); background: var(--bg-card); }
+.process-card b { color: var(--accent-cyan); font-size: .78rem; letter-spacing: .12em; }
+.process-card h3 { margin: 1.25rem 0 .75rem; font-size: 1.05rem; }
+.process-card p { color: var(--text-secondary); font-size: .88rem; line-height: 1.55; }
+
+@media (max-width: 980px) { .apple-hero-layout { grid-template-columns: 1fr; gap: 2rem; padding-top: 3rem; } .technical-mark { min-height: 280px; } .process-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .technical-mark { min-height: 220px; } .technical-caption { padding: 0 1rem; } .process-grid { grid-template-columns: 1fr; } }

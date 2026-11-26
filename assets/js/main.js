@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Interactive Tabs (Investors & Corporate Governance)
+  // 4. Interactive Tabs
   const tabBtns = document.querySelectorAll('.apple-tab-btn');
   const tabPanes = document.querySelectorAll('.apple-tab-pane');
 
@@ -115,43 +115,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Interactive RFQ Form Submission
+  // 5. RFQ Form Handling — no backend is configured, so do not claim submission success
   const rfqForms = document.querySelectorAll('.apple-interactive-form, #modalRfqForm');
   rfqForms.forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const originalText = submitBtn ? submitBtn.innerHTML : 'Submit';
-
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span>Verifying & Encrypting...</span>';
-      }
-
-      setTimeout(() => {
-        const feedback = form.querySelector('.form-feedback') || document.createElement('div');
-        feedback.className = 'form-feedback success';
-        feedback.style.marginTop = '1rem';
-        feedback.style.padding = '1rem';
-        feedback.style.borderRadius = '12px';
-        feedback.style.backgroundColor = 'rgba(0, 192, 240, 0.12)';
-        feedback.style.border = '1px solid rgba(0, 192, 240, 0.4)';
-        feedback.style.color = 'var(--text-primary)';
-        feedback.style.fontSize = '0.9rem';
-        feedback.style.lineHeight = '1.5';
-        feedback.innerHTML = `
-          <strong style="color: var(--accent-cyan); font-size: 1rem;">Specification Received</strong><br>
-          Your technical data sheet has been dispatched to the Chief Engineering Desk at RK Mechanical Works Private Limited. An estimation engineer will contact your office within 4 business hours.
-        `;
-        if (!form.querySelector('.form-feedback')) {
-          form.appendChild(feedback);
-        }
-        form.reset();
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = originalText;
-        }
-      }, 800);
+      const feedback = form.querySelector('.form-feedback') || document.createElement('div');
+      feedback.className = 'form-feedback success';
+      feedback.style.marginTop = '1rem';
+      feedback.style.padding = '1rem';
+      feedback.style.borderRadius = '12px';
+      feedback.style.backgroundColor = 'rgba(0, 192, 240, 0.12)';
+      feedback.style.border = '1px solid rgba(0, 192, 240, 0.4)';
+      feedback.style.color = 'var(--text-primary)';
+      feedback.innerHTML = 'Please send this completed requirement to <a href="mailto:rkmechanicalworks07@gmail.com" style="color:var(--accent-cyan)">rkmechanicalworks07@gmail.com</a> or call <a href="tel:+919837776270" style="color:var(--accent-cyan)">+91 98377 76270</a>. Website form delivery is not connected yet.';
+      if (!form.querySelector('.form-feedback')) form.appendChild(feedback);
     });
   });
 

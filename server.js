@@ -63,8 +63,8 @@ server.listen(PORT, '127.0.0.1', () => {
   console.log(`  Local URL:   http://localhost:${PORT}`);
   console.log(`  Home:        http://localhost:${PORT}/index.html`);
   console.log(`  About:       http://localhost:${PORT}/about.html`);
-  console.log(`  Solutions:   http://localhost:${PORT}/solutions.html`);
-  console.log(`  Investors:   http://localhost:${PORT}/investors.html`);
+  console.log(`  Services:    http://localhost:${PORT}/solutions.html`);
+  console.log(`  Industries:  http://localhost:${PORT}/industries.html`);
   console.log(`  Contact:     http://localhost:${PORT}/contact.html`);
   console.log(`======================================================\n`);
 });
